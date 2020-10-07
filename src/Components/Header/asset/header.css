@@ -1,0 +1,18 @@
+.bg-white {
+  padding: 25px 150px;
+  box-shadow: #00000033 2px 0 15px;
+}
+
+.info__profile span {
+  display: block;
+  color: rgba(58, 61, 66, 0.9);
+}
+
+.info__profile span:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info__profile span:last-child {
+  font-size: 13px;
+}

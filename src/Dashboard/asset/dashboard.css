@@ -1,0 +1,74 @@
+.info__balance {
+  background: #6379f4;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.balance h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.balance span {
+  font-size: 14px;
+}
+.btn__action a {
+  color: white;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.right__info {
+  box-shadow: #00000033 2px 0 15px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.salary__info {
+  text-align: left;
+}
+
+.salary__info p {
+  color: #6a6a6a;
+  font-size: 14px;
+}
+
+.salary__info h6 {
+  color: #3a3d42;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.transaction__info {
+  box-shadow: #00000033 2px 0 15px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.transaction__header h6 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a3d42;
+}
+
+.transaction__profile h6 {
+  color: #4d4b57;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.transaction__name span {
+  font-size: 14px;
+  color: #7a7886;
+}
+
+.total__transaction span {
+  font-weight: bold;
+  font-size: 16px;
+}

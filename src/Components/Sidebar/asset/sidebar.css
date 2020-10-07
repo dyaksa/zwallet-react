@@ -1,0 +1,55 @@
+.sidenav {
+  box-shadow: #00000033 2px 0 15px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.nav {
+  display: inline-block;
+  width: 100%;
+}
+
+.nav__item {
+  list-style: none;
+  padding: 30px 0px 20px 35px;
+}
+
+.nav__item img {
+  width: 28px;
+}
+
+.nav__signout {
+  padding: 30px 0px 30px 35px;
+  width: 100%;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+}
+
+.nav__signout a {
+  color: rgba(58, 61, 66, 0.8);
+}
+
+.nav__signout a:hover {
+  color: #6379f4;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.nav__item a {
+  color: rgba(58, 61, 66, 0.8);
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+}
+
+.nav__item a:hover {
+  text-decoration: none;
+  color: #6379f4;
+  transition: 0.5s;
+}

@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+/*=====================*/
+/*LOGIN PAGE STYLESHEET*/
+/*=====================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+main {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.container-login {
+  box-shadow: #00000033 2px 0 15px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.border-none {
+  border: none;
+}
+
+.border-none:focus {
+  box-shadow: none;
+}
+
+.border__bottom {
+  border-bottom: 1.5px solid rgba(169, 169, 169, 0.6);
+  margin-bottom: 50px;
+}
+
+.input__form {
+  color: rgba(169, 169, 169, 0.8);
+  font-size: 16px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-grey {
+  background: #dadada;
+  color: #88888f;
+  font-size: 18px;
+}
+
+.img__profile {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.box__shadow {
+  box-shadow: #00000033 2px 0 15px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.vh-50 {
+  height: 50vh;
+}
