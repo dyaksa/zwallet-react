@@ -15,6 +15,8 @@ const AddPhone = loadable(() => import("./Profile/page/AddPhone"));
 const ManagePhone = loadable(() => import("./Profile/page/ManagePhone"));
 const Password = loadable(() => import("./Profile/page/Password"));
 const Pin = loadable(() => import("./Profile/page/Pin"));
+const TopUp = loadable(() => import("./Topup"));
+const Transfer = loadable(() => import("./Transfers"));
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
                   <Route path="/password" component={Password}></Route>
                   <Route path="/phone/add" component={AddPhone}></Route>
                   <Route path="/phone/manage" component={ManagePhone}></Route>
+                  <Route path="/topup" component={TopUp}></Route>
+                  <Route path="/transfer" component={Transfer}></Route>
                 </Switch>
               </div>
             </Router>

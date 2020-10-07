@@ -1,0 +1,27 @@
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a3d42;
+}
+.topup__step {
+  padding: 20px;
+}
+
+.topup__list {
+  list-style: none;
+}
+
+.topup__list li {
+  padding: 20px 20px 20px 0;
+  counter-increment: li;
+  color: #7a7886;
+  font-size: 16px;
+}
+
+.topup__list li::before {
+  content: counter(li);
+  color: #6379f4;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}

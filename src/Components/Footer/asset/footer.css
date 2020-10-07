@@ -2,6 +2,9 @@
   background: #6379f4;
   padding: 10px;
   color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .footer p {

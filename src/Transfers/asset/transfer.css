@@ -1,0 +1,12 @@
+a.transaction__link:hover {
+  text-decoration: none;
+}
+
+.transaction__name span {
+  font-size: 14px;
+  color: #7a7886;
+}
+
+.font-weight-bold {
+  color: #4d4b57;
+}
