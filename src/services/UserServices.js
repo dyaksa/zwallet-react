@@ -1,27 +1,27 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/transfer?limit=4");
+  return http.get("/user?limit=4");
 };
 
 const getId = (id) => {
-  return http.get(`/transfer/${id}`);
+  return http.get(`/user/${id}`);
 };
 
 const create = (data) => {
-  return http.post(`/transfer`, data);
+  return http.post(`/user`, data);
 };
 
 const update = (id, data) => {
-  return http.patch(`/transfer/${id}`, data);
+  return http.patch(`/user/${id}`, data);
 };
 
 const remove = (id) => {
-  return http.delete(`/transfer/${id}`);
+  return http.delete(`/user/${id}`);
 };
 
 const findByName = (name) => {
-  return http.get(`/transfer?name=${name}`);
+  return http.get(`/user?name=${name}`);
 };
 
 export default {

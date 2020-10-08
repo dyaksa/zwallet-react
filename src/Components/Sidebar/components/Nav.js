@@ -6,7 +6,7 @@ import iconLogout from "../asset/log-out.svg";
 import iconPlus from "../asset/plus.svg";
 import iconUser from "../asset/user.svg";
 
-const Nav = (props) => {
+const Nav = () => {
   return (
     <>
       <div className="mb-5">
@@ -36,7 +36,7 @@ const Nav = (props) => {
         </ul>
       </div>
       <div className="nav__signout mt-5">
-        <Link>
+        <Link to="/">
           <img className="mr-3" src={iconLogout} alt="icon-logout"></img>Logout
         </Link>
       </div>

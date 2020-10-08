@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../asset/profile.css";
 import iconLock from "../asset/lock.svg";
 import iconEyeCross from "../asset/eye-crossed.svg";
+import UserServices from "../../services/UserServices";
 
 const Password = () => {
+  const initialTutorialState = {
+    password: "",
+  };
+  const [currentUser, setCurrentUser] = useState(initialTutorialState);
+
+  const onHandleInputChange = (e) => {
+    let { value } = e.target;
+    setCurrentUser({ password: value });
+    console.log(currentUser);
+  };
+
+  const updatePassword = () => {
+    UserServices.update(7, currentUser)
+      .then((res) => {
+        console.log(res.data.data);
+        console.log("success update password");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div class="box__shadow">
       <h3 className="header__h3 mb-5">Change Password</h3>
@@ -18,7 +41,7 @@ const Password = () => {
             <img src={iconLock} alt="icon-lock"></img>
             <input
               type="password"
-              class="form-control border-none input__form"
+              className="form-control border-none input__form"
               placeholder="Current password"
             />
             <img src={iconEyeCross} alt="icon-eyecrossed"></img>
@@ -27,8 +50,11 @@ const Password = () => {
             <img src={iconLock} alt="icon-lock"></img>
             <input
               type="password"
-              class="form-control border-none input__form"
+              className="form-control border-none input__form"
+              name="new"
               placeholder="New password"
+              value={currentUser.password}
+              onChange={onHandleInputChange}
             />
             <img src={iconEyeCross} alt="icon-eyecrossed"></img>
           </div>
@@ -38,10 +64,15 @@ const Password = () => {
               type="password"
               class="form-control border-none input__form"
               placeholder="Repeat password"
+              name="repeat"
             />
             <img src={iconEyeCross} alt="eye-crossed"></img>
           </div>
-          <button className="btn btn-block btn-lg btn-grey">
+          <button
+            onClick={updatePassword}
+            type="button"
+            className="btn btn-block btn-lg btn-grey"
+          >
             Change Password
           </button>
         </div>

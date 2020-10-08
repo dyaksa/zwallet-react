@@ -3,24 +3,43 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./asset/profile.css";
 import iconArrowLeft from "./asset/arrow-left.svg";
-import iconEdit from "./asset/edit.svg";
-import profile from "../profile.jpg";
+import UserServices from "../services/UserServices";
+import loadable from "@loadable/component";
+
+const Header = loadable(() => import("./components/Header"));
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+  }
+
+  componentDidMount() {
+    UserServices.getId(6)
+      .then((res) => {
+        this.setState({ data: res.data.data });
+        console.log(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <>
         <div className="d-flex justify-content-center box__shadow">
           <header className="header">
-            <img className="profile__img" src={profile} alt="profile"></img>
-            <div className="mt-2 d-flex justify-content-center">
-              <img className="mr-2" src={iconEdit} alt="icon-edit"></img>{" "}
-              <span className="text-grey">Edit</span>
-            </div>
-            <div className="mt-3">
-              <h6 className="name__info">Robert Chandler</h6>
-              <p className="phone__number">+62 813-9387-7946</p>
-            </div>
+            {this.state.data.map((user, index) => {
+              return (
+                <Header
+                  name={user.firstName + " " + user.lastName}
+                  phone={user.phone}
+                />
+              );
+            })}
             <div className="mt-5">
               <Link className="btn btn-primary-grey" to="/information">
                 Personal Information
