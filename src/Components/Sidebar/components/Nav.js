@@ -12,7 +12,7 @@ const Nav = () => {
       <div className="mb-5">
         <ul className="nav">
           <li className="nav__item">
-            <Link to="/">
+            <Link to="/dashboard">
               <img className="mr-3" src={iconGrid} alt="icon-grid"></img>{" "}
               Dashboard
             </Link>

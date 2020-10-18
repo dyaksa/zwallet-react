@@ -1,0 +1,114 @@
+.profile__img {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.card__box {
+  padding: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.card__title {
+  color: #7a7886;
+  font-size: 16px;
+}
+
+.card__name {
+  font-weight: bold;
+  font-size: 22px;
+  color: #514f5b;
+}
+.name__info {
+  color: #4d4b57;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.phone__number {
+  color: #7a7886;
+  font-size: 16px;
+}
+
+.header {
+  text-align: center;
+  width: 60%;
+}
+
+.header__h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a3d42;
+}
+
+.information__detail {
+  width: 50%;
+  color: #7a7886;
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+.btn-primary-grey {
+  background-color: #e5e8ed;
+  color: #4d4b57;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.manage__link {
+  display: flex;
+  align-items: center;
+}
+
+.pinlogin__field {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.pin__box {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+.phone__field {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a3d42;
+}
+
+.text-grey {
+  color: #7a7886;
+}
+
+.btn-grey {
+  background: #dadada;
+  color: #88888f;
+}
+
+.border-none {
+  border: none;
+}
+
+input.border-none:focus {
+  box-shadow: none;
+}
