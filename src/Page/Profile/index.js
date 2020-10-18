@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {logout} from "../../utils";
 import "./asset/profile.css";
 import { iconEdit, iconArrowL } from "./asset";
 import Header from "../../Components/Header";
@@ -7,6 +8,13 @@ import Sidebar from "../../Components/Sidebar";
 import Footer from "../../Components/Footer";
 
 class Profile extends React.Component {
+
+
+    handleClick = () => {
+       logout();
+       this.props.history.push("/login");
+    }
+
     render(){
         return(
             <>
@@ -40,9 +48,9 @@ class Profile extends React.Component {
                                                 <Link className="btn btn-primary-grey" to="/profile/pin">
                                                     Change Pin<img src={iconArrowL} alt="arrow-left"></img>
                                                 </Link>
-                                                <Link className="btn btn-primary-grey">
+                                                <button onClick={this.handleClick} type="submit" className="w-100 btn btn-lg btn-primary-grey">
                                                     Logout<img src={iconArrowL} alt="arrow-left"></img>
-                                                </Link>
+                                                </button>
                                             </div>
                                         </header>
                                     </div>

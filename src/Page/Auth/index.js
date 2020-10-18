@@ -11,10 +11,10 @@ class Auth extends React.Component {
                     <div className="col-md-7 left">
                         <div className="left-item">
                             <h1 className="left-title">Zwallet</h1>
-                            <div class="mt-5 image-container">
+                            <div className="mt-5 image-container">
                                 <img src={heroImage} alt="phone" />
                             </div>
-                            <section class="left-content">
+                            <section className="left-content">
                             <h2>App that Covering Banking Needs.</h2>
                                 <p>
                                     Zwallet is an application that focussing in banking needs for
@@ -28,17 +28,17 @@ class Auth extends React.Component {
                     <div className="col-md-5">
                         <div className="right-item">
                             <section>
-                                <h2 class="item-header">
+                                <h2 className="item-header">
                                     Start Accessing Banking Needs With All Devices and All Platforms
                                     With 30.000+ Users
                                 </h2>
-                                <p class="item-description mt-4">
+                                <p className="item-description mt-4">
                                     Transfering money is eassier than ever, you can access Zwallet
                                     wherever you are. Desktop, laptop, mobile phone? we cover all of
                                     that for you!
                                 </p>
                             </section>
-                            <LoginForm/>
+                            <LoginForm {...this.props}/>
                         </div>
                     </div>
                 </div>
