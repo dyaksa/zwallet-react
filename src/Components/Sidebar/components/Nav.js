@@ -13,7 +13,7 @@ const Nav = () => {
   const onLogout = (event) => {
     event.preventDefault();
     logout();
-    history.push("/login");
+    history.replace("/login");
   }
 
   return (

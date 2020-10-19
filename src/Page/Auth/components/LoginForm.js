@@ -18,10 +18,11 @@ const LoginForm = (props) => {
         .then(results => {
             if(results.data){
                 login(results.data.accessToken);
-                props.history.push("/dashboard");
+                props.history.replace("/dashboard");
             }
         }).catch(err => {
-            console.log(err.message);
+            const error = JSON.parse(err.request.response);
+            console.log(error);
         })
     }
 
@@ -31,7 +32,7 @@ const LoginForm = (props) => {
     }
 
     return(
-        <form className="item-form mt-5" method="POST" onSubmit={handleSubmit}>
+        <form className="item-form mt-5" onSubmit={handleSubmit}>
         <div className="mb-5 form-group">
             <div className="input-group">
             <img src={iconMail} alt="icon-mail"></img>
