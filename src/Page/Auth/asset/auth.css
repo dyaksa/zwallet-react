@@ -85,3 +85,29 @@
   color: rgba(58, 61, 66, 0.8);
   text-align: center;
 }
+
+.pincode-input-container .pincode-input-text {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 5px !important;
+  margin: 0 10px !important;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px !important;
+  border-radius: 5px !important;
+  text-align: center;
+}
+
+.pin__box {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+.phone__field {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a3d42;
+}

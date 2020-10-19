@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {iconLock, iconMail, iconEyeCrossed } from "../asset";
-import axios from "axios";
-import { login } from "../../../utils";
+import { AuthLogin } from "../../../redux/action/Auth";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginForm = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [type, setType] = useState("password");
+    const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.Auth); 
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -14,16 +16,8 @@ const LoginForm = (props) => {
             email: email,
             password: password
         };
-        axios.post("http://localhost:8000/api/v1/auth/login",data)
-        .then(results => {
-            if(results.data){
-                login(results.data.accessToken);
-                props.history.replace("/dashboard");
-            }
-        }).catch(err => {
-            const error = JSON.parse(err.request.response);
-            console.log(error);
-        })
+        console.log(loading);
+        dispatch(AuthLogin(data)); 
     }
 
     const handleChangeType = (event) => {
@@ -62,13 +56,21 @@ const LoginForm = (props) => {
             <div className="mt-3 link-item text-right">
                 <a href="#home">Forgot password ?</a>
             </div>
-            <button
+            {loading ? (<button
             type="submit"
+            disabled={true}
             id="login__button"
             className="mt-5 btn btn-grey btn-block btn-md"
             >
-            Login
-            </button>
+            Loading....
+            </button>) : 
+            (<button
+                type="submit"
+                id="login__button"
+                className="mt-5 btn btn-grey btn-block btn-md"
+                >
+                Login
+                </button>)}
             <div className="signup-text mt-5">
             <p>Don’t have an account? Let’s <a href="#home">Sign Up</a></p>
             </div>

@@ -13,24 +13,34 @@ import Password from "./Page/Password";
 import Phone from "./Page/Phone";
 import Topup from "./Page/Topup";
 import Auth from "./Page/Auth";
+import Register from "./Page/Auth/Register";
 import NotFound from "./Page/NotFound";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import configureStore from "./redux/store";
 
 function App() {
+  const { store, persistor } = configureStore();
   return (
-    <Router>
-      <Switch>
-        <PublicRoute exact component={Auth} restricted={true} path="/login"/>
-        <PrivateRoute exact component={Dashboard} path="/dashboard"/>
-        <PrivateRoute exact component={Transfer} path="/transfer"/>
-        <PrivateRoute exact component={Profile} path="/profile"/>
-        <PrivateRoute exact component={Topup} path="/topup"/>
-        <PrivateRoute component={ProfileInformation} path="/profile/information" />
-        <PrivateRoute component={Pin} path="/profile/pin"/>
-        <PrivateRoute component={Password} path="/profile/password"/>
-        <PrivateRoute component={Phone} path="/profile/phone"/>
-        <Route exact path="*" component={NotFound} />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <Switch>
+            <PublicRoute exact component={Auth} restricted={true} path="/login"/>
+            <PublicRoute exact component={Register} restricted={true} path="/register"/>
+            <PrivateRoute exact component={Dashboard} path="/dashboard"/>
+            <PrivateRoute exact component={Transfer} path="/transfer"/>
+            <PrivateRoute exact component={Profile} path="/profile"/>
+            <PrivateRoute exact component={Topup} path="/topup"/>
+            <PrivateRoute component={ProfileInformation} path="/profile/information" />
+            <PrivateRoute component={Pin} path="/profile/pin"/>
+            <PrivateRoute component={Password} path="/profile/password"/>
+            <PrivateRoute component={Phone} path="/profile/phone"/>
+            <Route exact path="*" component={NotFound} />
+          </Switch>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 

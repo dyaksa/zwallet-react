@@ -5,14 +5,16 @@ import iconArrow from "../asset/arrow-up.svg";
 import iconLogout from "../asset/log-out.svg";
 import iconPlus from "../asset/plus.svg";
 import iconUser from "../asset/user.svg";
-import { logout } from "../../../utils";
+import { AuthLogout } from "../../../redux/action/Auth";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
   let history = useHistory();
+  const dispatch = useDispatch();
 
   const onLogout = (event) => {
     event.preventDefault();
-    logout();
+    dispatch(AuthLogout());
     history.replace("/login");
   }
 
