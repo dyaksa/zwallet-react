@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {iconLock, iconMail, iconEyeCrossed } from "../asset";
 import { AuthLogin } from "../../../redux/action/Auth";
 import { useDispatch, useSelector } from "react-redux";
+import {Link} from "react-router-dom";
 
 const LoginForm = (props) => {
     const [email, setEmail] = useState("");
@@ -71,7 +72,7 @@ const LoginForm = (props) => {
                 Login
                 </button>)}
             <div className="signup-text mt-5">
-            <p>Don’t have an account? Let’s <a href="#home">Sign Up</a></p>
+            <p>Don’t have an account? Let’s <Link to="/register">Sign Up</Link></p>
             </div>
         </div>
     </form>

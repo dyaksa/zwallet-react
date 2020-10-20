@@ -3,7 +3,6 @@ import profilePhoto from "../../../profile.jpg";
 import iconBell from "../asset/bell.svg";
 
 const Profile = (props) => {
-
   return (
     <figure
       className="d-flex justify-content-beetween align-items-center"

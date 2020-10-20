@@ -1,6 +1,7 @@
 const initialState = {
     data: [],
-    loading: false
+    loading: false,
+    error: false
 };
 
 const Auth = (state = initialState, action = {}) => {
@@ -22,7 +23,8 @@ const Auth = (state = initialState, action = {}) => {
                 ...state,
                 loading: false,
                 isLogin: false,
-                error: action.payload
+                error: true,
+                message: action.payload
             };
         case "LOGOUT":
             return {

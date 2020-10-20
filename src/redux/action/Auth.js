@@ -29,11 +29,10 @@ const AuthRegisterSuccess = (data) => {
 
 const AuthLogin = (fields) => {
     return (dispatch) => {
-        dispatch(AuthRequest);
+        dispatch(AuthRequest());
         return http.post("/auth/login",fields)
         .then(res => {
             const data = res.data;
-            console.log(data);
             dispatch(AuthLoginSuccess(data));
         }).catch(err => {
             const message = err.message;

@@ -6,6 +6,7 @@ import iconLogout from "../asset/log-out.svg";
 import iconPlus from "../asset/plus.svg";
 import iconUser from "../asset/user.svg";
 import { AuthLogout } from "../../../redux/action/Auth";
+import { UserClearStore } from "../../../redux/action/User";
 import { useDispatch } from "react-redux";
 
 const Nav = () => {
@@ -15,6 +16,7 @@ const Nav = () => {
   const onLogout = (event) => {
     event.preventDefault();
     dispatch(AuthLogout());
+    dispatch(UserClearStore());
     history.replace("/login");
   }
 
