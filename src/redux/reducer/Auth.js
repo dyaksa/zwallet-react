@@ -5,7 +5,7 @@ const initialState = {
 
 const Auth = (state = initialState, action = {}) => {
     switch(action.type){
-        case "LOGIN_REQUEST":
+        case "AUTH_REQUEST":
             return {
                 ...state,
                 loading: true
@@ -17,7 +17,7 @@ const Auth = (state = initialState, action = {}) => {
                 isLogin: true,
                 data: action.payload
             };
-        case "LOGIN_ERROR":
+        case "REQUEST_ERROR":
             return {
                 ...state,
                 loading: false,
@@ -35,6 +35,12 @@ const Auth = (state = initialState, action = {}) => {
                     version: -1
                 }
             };
+        case "REGISTER_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
         default: 
             return state;
     }

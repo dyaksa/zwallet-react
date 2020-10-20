@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import PinInput from "react-pin-input";
+import { AuthRegister } from  "../../../redux/action/Auth";
+import { useDispatch, useSelector } from "react-redux";
 
 const PinForm = ({ formData }) => {
     const [pin, setPin] = useState("");
     const data =  {...formData, pin: pin }
+    const { loading } = useSelector((selector) => selector.Auth);
+    const dispatch = useDispatch();
 
     const onChange = (value) => {
         setPin(value);
@@ -11,7 +15,7 @@ const PinForm = ({ formData }) => {
 
     const retrieveData = (event) => {
         event.preventDefault();
-        console.log(data);
+        dispatch(AuthRegister(data));
     } 
 
     return (
@@ -27,7 +31,7 @@ const PinForm = ({ formData }) => {
                     regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
                 />
             </div>
-                <button type="submit" className="btn btn-lg btn-grey w-100">Confirmation</button>
+                {loading ? (<button type="submit" disabled={true} className="btn btn-lg btn-grey w-100">Loading...</button>) : (<button type="submit" className="btn btn-lg btn-grey w-100">Confirmation</button>)}
             </div>
         </form>
     )

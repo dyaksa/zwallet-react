@@ -1,8 +1,8 @@
 import http from "../../http-common";
 
-const AuthLoginRequest = () => {
+const AuthRequest = () => {
     return {
-        type: "LOGIN_REQUEST"
+        type: "AUTH_REQUEST"
     }
 }
 
@@ -13,16 +13,23 @@ const AuthLoginSuccess = (data) => {
     }
 }
 
-const AuthLoginError = (error) => {
+const RequestError = (error) => {
     return {
-        type: "LOGIN_ERROR",
+        type: "REQUEST_ERROR",
         payload: error
+    }
+}
+
+const AuthRegisterSuccess = (data) => {
+    return {
+        type: "REGISTER_SUCCESS",
+        payload: data
     }
 }
 
 const AuthLogin = (fields) => {
     return (dispatch) => {
-        dispatch(AuthLoginRequest);
+        dispatch(AuthRequest);
         return http.post("/auth/login",fields)
         .then(res => {
             const data = res.data;
@@ -30,8 +37,23 @@ const AuthLogin = (fields) => {
             dispatch(AuthLoginSuccess(data));
         }).catch(err => {
             const message = err.message;
-            dispatch(AuthLoginError(message));
+            dispatch(RequestError(message));
         })
+    }
+}
+
+const AuthRegister = (fields) => {
+    return (dispatch) => {
+        dispatch(AuthRequest);
+        http.post("/auth/register",fields)
+        .then(results => {
+            const data = results.data;
+            dispatch(AuthRegisterSuccess(data));
+        }).catch(err => {
+            const message = err.message;
+            dispatch(RequestError(message));
+        })
+
     }
 }
 
@@ -41,4 +63,4 @@ const AuthLogout = () => {
     }
 }
 
-export { AuthLogin, AuthLogout };
+export { AuthLogin, AuthLogout, AuthRegister };

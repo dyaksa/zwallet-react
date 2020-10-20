@@ -16,7 +16,6 @@ const LoginForm = (props) => {
             email: email,
             password: password
         };
-        console.log(loading);
         dispatch(AuthLogin(data)); 
     }
 
