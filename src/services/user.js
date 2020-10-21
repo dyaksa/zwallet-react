@@ -17,6 +17,22 @@ const getUserByName = (name,token) => {
     })
 }
 
+const getUserProfile = (token) => {
+    return new Promise((resolve, reject) => {
+        http.get("/user/detail",{
+            headers: {
+                'content-type': 'multipart/form-data',
+                "x-access-token": token
+            }
+        }).then(results => {
+            resolve(results);
+        }).catch(err => {
+            reject(err);
+        })
+    })
+}
+
 export {
-    getUserByName
+    getUserByName,
+    getUserProfile,
 }

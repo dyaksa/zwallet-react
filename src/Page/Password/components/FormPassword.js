@@ -1,6 +1,6 @@
 import React, { createRef } from "react";
 import { iconEyeCross, iconLock } from "../asset";
-import { GetUserLogin, UpdateProfile } from "../../../redux/action/User";
+import { UpdateProfile } from "../../../redux/action/User";
 import { useDispatch, useSelector } from "react-redux";
 
 const FormPassword = () => {
@@ -16,7 +16,6 @@ const FormPassword = () => {
         password: passRef.current.value
       }
       dispatch(UpdateProfile(fields,data.accessToken));
-      dispatch(GetUserLogin(data.accessToken));
       event.currentTarget.reset();
     }
 

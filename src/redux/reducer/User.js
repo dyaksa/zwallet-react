@@ -25,7 +25,6 @@ const User = (state = initialState, action = {}) => {
                 ...state,
                 loading: false,
                 error: true,
-                user: payload,
             }
         case "CLEAR_STORE":
             return {

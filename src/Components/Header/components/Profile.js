@@ -8,10 +8,10 @@ const Profile = (props) => {
       className="d-flex justify-content-beetween align-items-center"
       id="header-profile"
     >
-      <img className="img__profile mr-3" src={profilePhoto} alt="profile" />
+      <img className="img__profile mr-3" src={props.photo ? props.photo : profilePhoto} alt="profile" />
       <section className="info__profile mr-4">
         <span>{props.name}</span>
-        <span>{props.phone}</span>
+        <span>{`+62 ${props.phone}`}</span>
       </section>
       <img src={iconBell} alt="icon-bell"></img>
     </figure>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import loadable from "@loadable/component";
 import "./asset/header.css";
@@ -10,12 +10,10 @@ const Profile = loadable(() => import("./components/Profile"));
 const Header = () => {
   const { data } = useSelector((s) => s.Auth);
   const {user} = useSelector((s) => s.User);
-  const [profile, setProfile] = useState(user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(GetUserLogin(data.accessToken));
-    setProfile(user);
   },[]);
 
   return (
@@ -23,7 +21,7 @@ const Header = () => {
       <a href="/" className="navbar-brand">
         <h1>Zwallet</h1>
       </a>
-        <Profile key={user.id} name={`${user.firstName} ${user.lastName}`} phone={user.phone}/>
+        <Profile key={data.user.id} name={`${data.user.firstName} ${data.user.lastName}`} phone={user.phone} photo={user.photo}/>
     </header>
   );
 };

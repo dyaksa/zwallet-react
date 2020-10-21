@@ -1,4 +1,5 @@
 import http from "../../http-common";
+import { getUserProfile } from "../../services/user";
 
 const UserRequest = () => {
     return {
@@ -54,8 +55,12 @@ const UpdateProfile = (fields, token) => {
                 "x-access-token": token
             }
         }).then(results => {
-            console.log(results);
-           dispatch(UserRequestSuccess(results));
+           getUserProfile(token)
+           .then(results => {
+                dispatch(UserRequestSuccess(results.data.data[0]));
+           }).catch(err => {
+                dispatch(UserRequestError(err.message));
+           })
         }).catch(err => {
             console.log(err);
             dispatch(UserRequestError(err));

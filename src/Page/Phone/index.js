@@ -1,12 +1,41 @@
 import React from "react";
+import { useForm, useStep } from "react-hooks-helper";
 import "./asset/phone.css";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
 import Footer from "../../Components/Footer";
 import ListPhone from "./components/ListPhone";
+import AddPhone from "./components/AddPhone";
 
-class Phone extends React.Component {
-    render(){
+const defaultData = {
+    phone: "",
+}
+
+const steps = [
+    {id: "manage"},
+    {id: "edit"}
+]
+
+const Phone = () => {
+        const [formData, setForm] = useForm(defaultData);
+        const {step, navigation} = useStep({
+            steps,
+            initialStep: 0
+        });
+
+        const props = { formData, setForm, navigation };
+        
+        const renderSwitch = () => {
+            switch(step.id){
+                case "manage":
+                    return (<ListPhone { ...props }/>);
+                case "edit":
+                    return (<AddPhone { ...props }/>);
+                default:
+                    return (<ListPhone { ...props }/>);
+            }
+        }
+
         return(
         <>
             <Header/>
@@ -18,12 +47,7 @@ class Phone extends React.Component {
                             </div>
                             <div className="col-md-12 col-lg-9">
                             <div className="box__shadow">
-                                <h3 className="header__h3 mb-5">Manage Phone Number</h3>
-                                <p className="information__detail">
-                                    You can only delete the phone number and then you must add another phone
-                                    number.
-                                </p>
-                                <ListPhone/>
+                                { renderSwitch() }
                             </div>
                             </div>
                         </div>
@@ -32,7 +56,6 @@ class Phone extends React.Component {
             <Footer/>
         </>
     )
-    }
 }
 
 export default Phone;
