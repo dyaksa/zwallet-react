@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {logout} from "../../utils";
 import "./asset/profile.css";
-import { iconEdit, iconArrowL } from "./asset";
+import { iconArrowL } from "./asset";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
 import Footer from "../../Components/Footer";
+import HeaderProfile from "./components/HeaderProfile";
 
 class Profile extends React.Component {
 
@@ -28,15 +29,7 @@ class Profile extends React.Component {
                                 <div className="col-md-12 col-lg-9">
                                     <div className="d-flex justify-content-center box__shadow">
                                         <header className="header">
-                                            <img className="profile__img" src="" alt="profile"></img>
-                                            <div className="mt-2 d-flex justify-content-center">
-                                                <img className="mr-2" src={iconEdit} alt="icon-edit"></img>
-                                                <span className="text-grey">Edit</span>
-                                            </div>
-                                            <div className="mt-3">
-                                                <h6 className="name__info">Samuel Suhi</h6>
-                                                <p className="phone__number">+62 7367276376</p>
-                                            </div>
+                                            <HeaderProfile/>
                                             <div className="mt-5">
                                                 <Link className="btn btn-primary-grey" to="/profile/information">
                                                     Personal Information

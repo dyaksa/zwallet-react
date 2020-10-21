@@ -2,6 +2,7 @@ const initialState = {
     user: [],
     loading: false,
     error: false,
+    data: [],
 }
 
 
@@ -24,13 +25,14 @@ const User = (state = initialState, action = {}) => {
                 ...state,
                 loading: false,
                 error: true,
-                user: payload
+                user: payload,
             }
         case "CLEAR_STORE":
             return {
                 ...state,
                 loading: false,
                 data: [],
+                user: [],
                 _persist: {
                     rehydrated: true,
                     version: -1

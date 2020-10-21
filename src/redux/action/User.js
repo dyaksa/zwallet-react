@@ -1,4 +1,4 @@
-// import http from "../../http-common";
+import http from "../../http-common";
 
 const UserRequest = () => {
     return {
@@ -16,7 +16,6 @@ const UserRequestSuccess = (data) => {
 const UserRequestError = (error) => {
     return {
         type: "USER_REQUEST_ERROR",
-        payload: error
     }
 }
 
@@ -32,11 +31,42 @@ const UserClearStore = () => {
     }
 }
 
+const GetUserLogin = (token) => {
+    return (dispatch) => {
+        dispatch(UserRequest());
+        http.get("/user/detail",{
+          headers: {
+            "x-access-token": token
+          }
+        }).then(results => {
+          dispatch(UserRequestSuccess(results.data.data[0]));
+        }).catch(err => {
+          UserRequestError(err.message);
+        });
+    }
+}
+
+const UpdateProfile = (fields, token) => {
+    return(dispatch) => {
+        dispatch(UserRequest());
+        http.patch("/user",fields,{
+            headers: {
+                "x-access-token": token
+            }
+        }).then(results => {
+            console.log(results);
+           dispatch(UserRequestSuccess(results));
+        }).catch(err => {
+            console.log(err);
+            dispatch(UserRequestError(err));
+        })
+    }
+}
+
 
 
 export {
     UserClearStore,
-    UserRequest,
-    UserRequestSuccess,
-    UserRequestError,
+    UpdateProfile,
+    GetUserLogin
 }
