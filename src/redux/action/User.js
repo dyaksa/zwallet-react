@@ -1,5 +1,5 @@
 import http from "../../http-common";
-import { getUserProfile } from "../../services/user";
+import { getUserProfile,postImage } from "../../services/user";
 
 const UserRequest = () => {
     return {
@@ -47,6 +47,23 @@ const GetUserLogin = (token) => {
     }
 }
 
+const UploadFile = (fields,token) => {
+    return (dispatch) => {
+        dispatch(UserRequest());
+        postImage(fields,token)
+        .then(() => {
+            getUserProfile(token)
+            .then(results => {
+                dispatch(UserRequestSuccess(results.data.data[0]))
+            }).catch(err => {
+                dispatch(UserRequestError(err));
+            })
+        }).catch(err => {
+            dispatch(UserRequestError(err));
+        })
+    }
+}
+
 const UpdateProfile = (fields, token) => {
     return(dispatch) => {
         dispatch(UserRequest());
@@ -73,5 +90,6 @@ const UpdateProfile = (fields, token) => {
 export {
     UserClearStore,
     UpdateProfile,
-    GetUserLogin
+    GetUserLogin,
+    UploadFile
 }

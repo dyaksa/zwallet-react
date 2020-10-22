@@ -17,6 +17,21 @@ const getUserByName = (name,token) => {
     })
 }
 
+const postImage = (fields,token) => {
+    return new Promise((resolve,reject) => {
+        http.post("/upload/images",fields,{
+            headers: {
+                "x-access-token": token
+            }
+        })
+        .then(results => {
+            resolve(results);
+        }).catch(err => {
+            reject(err);
+        })
+    })
+}
+
 const getUserProfile = (token) => {
     return new Promise((resolve, reject) => {
         http.get("/user/detail",{
@@ -35,4 +50,5 @@ const getUserProfile = (token) => {
 export {
     getUserByName,
     getUserProfile,
+    postImage
 }
